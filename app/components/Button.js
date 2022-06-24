@@ -30,8 +30,11 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: "center",
     padding: 15,
-    width: "100%",
+    width: "90%",
     marginVertical: 10,
+    // borderRadius: 2,
+    borderColor: colors.primary,
+    borderWidth: 2,
   },
   text: {
     fontSize: 15,
