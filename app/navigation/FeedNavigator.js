@@ -2,9 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import ListingScreen from "../screens/ListingScreen";
 import ListingDetailScreen from "../screens/ListingDetailScreen";
-import { TouchableOpacity } from "react-native";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import colors from "../config/colors";
+import { WishListScreen } from "../screens/WishListScreen";
 
 const Stack = createStackNavigator();
 
@@ -18,6 +16,7 @@ const FeedNavigator = ({ navigation }) => {
         name="ListingDetailScreen"
         component={ListingDetailScreen}
       />
+      <Stack.Screen name="WishListScreen" component={WishListScreen} />
     </Stack.Navigator>
   );
 };

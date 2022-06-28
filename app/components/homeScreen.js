@@ -7,6 +7,7 @@ import {
   StatusBar,
   Image,
   Text,
+  TouchableWithoutFeedback,
 } from "react-native";
 import colors from "../config/colors";
 const { StatusBarManager } = NativeModules;
@@ -17,10 +18,10 @@ import { ItemContext } from "../auth/ItemProvider";
 const STATUSBAR_HEIGHT = Platform.OS === "ios" ? 20 : StatusBarManager.HEIGHT;
 const APPBAR_HEIGHT = Platform.OS === "ios" ? 44 : 60;
 
-const HomeScreen = ({ children, style }) => {
+const HomeScreen = ({ navigation, children, style }) => {
   const { getItemsCount } = useContext(ItemContext);
   const numberOfCartItem = getItemsCount();
-  console.log(numberOfCartItem);
+
   return (
     <SafeAreaView style={[styles.container, style]}>
       <StatusBar
@@ -83,7 +84,11 @@ const HomeScreen = ({ children, style }) => {
           ) : null}
         </View>
 
-        <MaterialCommunityIcons style={styles.icon} name="home" size={30} />
+        <TouchableWithoutFeedback
+          onPress={() => navigation.navigate("WishListScreen")}
+        >
+          <MaterialCommunityIcons style={styles.icon} name="home" size={30} />
+        </TouchableWithoutFeedback>
       </View>
       <View style={[styles.view, style]}>{children}</View>
     </SafeAreaView>

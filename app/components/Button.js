@@ -3,12 +3,22 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 import colors from "../config/colors";
 
-function Button({ title, onPress, color = "primary", alignItems }) {
+function Button({
+  title,
+  onPress,
+  color = "primary",
+  alignItems,
+  width = "90%",
+}) {
   return (
     <TouchableOpacity
       style={[
         styles.button,
-        { backgroundColor: colors[color], alignItems: alignItems },
+        {
+          backgroundColor: colors[color],
+          alignItems: alignItems,
+          width: width,
+        },
       ]}
       onPress={onPress}
     >

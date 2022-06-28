@@ -42,7 +42,7 @@ const ListingScreen = ({ navigation }) => {
   return (
     <>
       <ActivityIndicator visible={loading} />
-      <HomeScreen style={styles.screen}>
+      <HomeScreen style={styles.screen} navigation={navigation}>
         {error && (
           <>
             <AppText>Couldn't retrieve the listings.</AppText>

@@ -10,9 +10,7 @@ import {
 import { SliderBox } from "react-native-image-slider-box";
 
 import colors from "../config/colors";
-import ContactSellerForm from "../components/ContactSellerForm";
 import Text from "../components/Text";
-import ListItem from "../components/list/listItem";
 import Screen from "../components/Screen";
 import Button from "../components/Button";
 import { ItemContext } from "../auth/ItemProvider";
@@ -20,10 +18,14 @@ import { Header } from "../components/Header";
 
 function ListingDetailsScreen({ route, navigation }) {
   const listing = route.params;
-  const { addToCart } = useContext(ItemContext);
+  const { addToCart, addOrRemoveFromWishList } = useContext(ItemContext);
 
   const onAddToCart = () => {
     addToCart(listing.id);
+  };
+
+  const addToWishList = () => {
+    addOrRemoveFromWishList(listing.id);
   };
   return (
     <Screen style={styles.container}>
@@ -52,12 +54,20 @@ function ListingDetailsScreen({ route, navigation }) {
           <Text style={styles.price}>${listing.price}</Text>
         </View>
         <View style={styles.parent}>
-          <Button
-            title="Chat"
-            alignItems="center"
-            color={colors.white}
-            onPress={() => navigation.navigate("Chat", listing.user)}
-          />
+          <View style={styles.chat_wish}>
+            <Button
+              title="Add to WishList"
+              alignItems="center"
+              onPress={() => addToWishList()}
+              width="45%"
+            />
+            <Button
+              title="Chat"
+              alignItems="center"
+              onPress={() => navigation.navigate("Chat")}
+              width="45%"
+            />
+          </View>
           <Button
             title="Add to cart"
             alignItems="center"
@@ -94,6 +104,11 @@ const styles = StyleSheet.create({
     position: "relative",
     top: 0,
     left: 0,
+  },
+  chat_wish: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    width: "100%",
   },
 });
 

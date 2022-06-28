@@ -28,7 +28,7 @@ export const TotalButton = ({ total }) => {
       <TouchableOpacity onPress={() => {}}>
         <View style={styles.btn}>
           <CustomText style={{ color: Colors.white, fontSize: 16 }}>
-            Tiến hành đặt hàng
+            Place Order
           </CustomText>
         </View>
       </TouchableOpacity>

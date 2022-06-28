@@ -29,7 +29,7 @@ const Card = ({ imageUrl, onPress, subTitle, title }) => {
             <Text numberOfLines={1} style={styles.title}>
               {title}
             </Text>
-            <Text numberOfLines={2} style={styles.subTitle}>
+            <Text numberOfLines={1} style={styles.subTitle}>
               {subTitle}
             </Text>
           </View>
@@ -40,12 +40,9 @@ const Card = ({ imageUrl, onPress, subTitle, title }) => {
               color={colors.primary}
               size={25}
             />
-            <MaterialCommunityIcons
-              style={styles.icon}
-              name="cart-outline"
-              color={colors.primary}
-              size={25}
-            />
+            <Text numberOfLines={1} style={styles.subTitle}>
+              View
+            </Text>
           </View>
         </View>
       </View>
@@ -73,6 +70,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     alignSelf: "flex-end",
     marginRight: 10,
+    display: "flex",
+    flexDirection: "column",
   },
   image: {
     width: "100%",
@@ -89,12 +88,6 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-  },
-  addToCart: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "flex-end",
-    marginRight: 10,
   },
   icon: {
     marginRight: 10,

@@ -63,14 +63,19 @@ export const ItemProvider = ({ children }) => {
     });
   };
 
-  const addOrRemoveFromWishList = (id) => {
-    const product = getItem(id);
+  const addOrRemoveFromWishList = async (id) => {
+    const product = await getItem(id);
+    console.log(id);
+    console.log(product);
     setWishList((prevItems) => {
       const item = prevItems.find((item) => item.id == id);
+
       if (!item) {
+        console.log("1");
         return [
           ...prevItems,
           {
+            id,
             product,
           },
         ];
